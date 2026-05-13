@@ -1,0 +1,79 @@
+@startuml uml
+skinparam classAttributeIconSize 0
+hide circle
+
+class ShopManagementSystem {
+  + {static} main(args: String[]) : void
+}
+
+class Transaction {
+  - transactionId : String
+  - items : ArrayList<Product>
+  + Transaction(transactionId: String)
+  + addItem(item: Product) : void
+  + addItem(item: Product, quantity: int) : void
+  + processSale() : double
+  + getTransactionId() : String
+  + setTransactionId(transactionId: String) : void
+  + getItems() : ArrayList<Product>
+  + setItems(items: ArrayList<Product>) : void
+}
+
+abstract class Product {
+  - productId : String
+  - name : String
+  - price : double
+  - stockQuantity : int
+  + Product(productId: String, name: String, price: double, stockQuantity: int)
+  + {abstract} calculateDiscount() : double
+  + getProductInfo() : void
+  + updateStock(quantity: int) : void
+  + updateStock(quantity: int, reason: String) : void
+  + getProductId() : String
+  + setProductId(productId: String) : void
+  + getName() : String
+  + setName(name: String) : void
+  + getPrice() : double
+  + setPrice(price: double) : void
+  + getStockQuantity() : int
+  + setStockQuantity(stockQuantity: int) : void
+}
+
+class ClothingProduct {
+  - size : String
+  - brand : String
+  + ClothingProduct(productId: String, name: String, price: double, stockQuantity: int, size: String, brand: String)
+  + calculateDiscount() : double
+  + getProductInfo() : void
+  + getSize() : String
+  + setSize(size: String) : void
+  + getBrand() : String
+  + setBrand(brand: String) : void
+}
+
+class ElectronicProduct {
+  - warrantyPeriod : String
+  + ElectronicProduct(productId: String, name: String, price: double, stockQuantity: int, warrantyPeriod: String)
+  + calculateDiscount() : double
+  + getProductInfo() : void
+  + getWarrantyPeriod() : String
+  + setWarrantyPeriod(warrantyPeriod: String) : void
+}
+
+class FoodProduct {
+  - expiryDate : String
+  + FoodProduct(productId: String, name: String, price: double, stockQuantity: int, expiryDate: String)
+  + calculateDiscount() : double
+  + getProductInfo() : void
+  + getExpiryDate() : String
+  + setExpiryDate(expiryDate: String) : void
+}
+
+ShopManagementSystem ..> Transaction
+ShopManagementSystem ..> Product
+Transaction "1" --> "*" Product
+
+ClothingProduct -up-|> Product
+ElectronicProduct -up-|> Product
+FoodProduct -up-|> Product
+@enduml

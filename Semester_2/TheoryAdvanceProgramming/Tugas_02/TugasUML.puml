@@ -1,0 +1,65 @@
+@startuml TugasUML
+skinparam classAttributeIconSize 0
+hide circle
+
+class Siswa {
+  - nis : String
+  - kuotaPinjam : int = 2
+  - nama : String
+  + cekKuota() : boolean
+}
+
+class Pegawai {
+  - nip : String
+  - nama : String
+  + verifikasiSiswa(siswa : Siswa) : boolean
+  + catatTransaksi(transaksi : TransaksiPeminjaman) : void
+  + cekFisikBuku(buku : Buku) : boolean
+  + updateStatusBuku(buku : Buku, status : boolean) : void
+}
+
+class TransaksiPeminjaman {
+  - idTransaksi : String
+  - tglPinjam : Date
+  - tglJatuhTempo : Date
+  - tglKembali : Date
+  - status : String
+  + buatTransaksi() : void
+  + selesaikanTransaksi() : void
+  + hitungKeterlambatan() : int
+}
+
+class Buku {
+  - isbn : String
+  - judul : String
+  - penerbit : String
+  - tahunTerbit : String
+  - klasifikasi : String
+  - status : boolean
+  - kualitasBuku : boolean
+  + perbaruiStatus(status : boolean) : void
+  + totalBukuRusak(kualitasBuku : boolean) : int
+}
+
+class Pengarang {
+  - nama : String
+  - role : String
+  + buatBuku(buku : Buku) : void
+}
+
+class Denda {
+  - idDenda : String
+  - hariTerlambat : int
+  - tarifPerHari : Double
+  - totalDenda : Double
+  + hitungDenda() : Double
+  + perawatanBuku() : Double
+  + BukuBaru() : Double
+}
+
+Siswa "1" --> "0..2" TransaksiPeminjaman
+Pegawai "1" --> "0..*" TransaksiPeminjaman
+TransaksiPeminjaman "1" *-- "1..2" Buku
+TransaksiPeminjaman "1" *-- "0..1" Denda
+Buku "*" --> "*" Pengarang
+@enduml

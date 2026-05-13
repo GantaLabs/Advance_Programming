@@ -1,0 +1,27 @@
+package Semester_2.Advance_Programming.Semester_2.PracticalAdvanceProgramming.Chapter_10.MenulisFile;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
+public class TulisFile2 {
+
+    public static void main(String[] args) {
+
+        var keyboard = new Scanner(System.in);
+        var path = Paths.get("test.txt");
+
+        System.out.print("Masukkan teks yang akan disimpan: ");
+        var text = keyboard.nextLine();
+
+        try {
+            Files.writeString(path, text);
+
+        } catch (IOException e) {
+            System.err.println("Gagal menulis ke file");
+
+        }
+        keyboard.close();
+    }
+}

@@ -1,0 +1,20 @@
+001|Cinta Itu Luka|Romance
+002|Langit Senja|Drama
+003|Jejak Hujan|Romance
+004|Misteri Rumah Tua|Horror
+005|Petualangan Nusantara|Adventure
+006|Algoritma Cinta|Comedy
+007|Bayangan Malam|Thriller
+008|Suara dari Timur|Drama
+009|Laskar Pagi|Action
+010|Pelangi di Ujung Jalan|Motivation
+011|Kota Tanpa Nama|Mystery
+012|Rindu dalam Diam|Romance
+013|Titik Balik|Inspirational
+014|Dunia Paralel|SciFi
+015|Mimpi Anak Desa|Drama
+016|Operasi Rahasia|Action
+017|Diary Seorang Pelajar|Education
+018|Legenda Gunung Arjuna|Fantasy
+019|Hati yang Pulang|Family
+020|Teror Tengah Malam|Horror

@@ -1,0 +1,41 @@
+package Semester_2.Advance_Programming.Semester_2.PracticalAdvanceProgramming.Chapter_6.Practical;
+
+import java.time.LocalDate;
+import java.time.Period;
+
+public class Pekerja extends Manusia {
+    private double gaji;
+    private LocalDate tahunMasuk;
+    private int jumlahAnak;
+
+    public Pekerja(String nama, boolean jenisKelamin, String nik, boolean menikah,
+                   double gaji, LocalDate tahunMasuk, int jumlahAnak) {
+        super(nama, jenisKelamin, nik, menikah);
+        this.gaji = gaji;
+        this.tahunMasuk = tahunMasuk;
+        this.jumlahAnak = jumlahAnak;
+    }
+
+    public double getBonus() {
+        int lamaKerja = Period.between(tahunMasuk, LocalDate.now()).getYears();
+
+        if (lamaKerja <= 5) return 0.05 * gaji;
+        else if (lamaKerja <= 10) return 0.10 * gaji;
+        else return 0.15 * gaji;
+    }
+
+    public double getGaji() {
+        return gaji + getBonus() + (jumlahAnak * 20);
+    }
+
+    public double getPendapatan() {
+        return super.getPendapatan() + getGaji();
+    }
+
+    public String toString() {
+        return super.toString() +
+                "\nTahun Masuk: " + tahunMasuk +
+                "\nJumlah Anak: " + jumlahAnak +
+                "\nGaji: " + getGaji();
+    }
+}

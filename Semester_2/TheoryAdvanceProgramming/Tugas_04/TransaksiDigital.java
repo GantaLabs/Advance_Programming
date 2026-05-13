@@ -1,0 +1,6 @@
+package Semester_2.Advance_Programming.Semester_2.TheoryAdvanceProgramming.Tugas_04;
+
+interface TransaksiDigital extends Transaksi {
+    void validasiOTP();
+
+}
