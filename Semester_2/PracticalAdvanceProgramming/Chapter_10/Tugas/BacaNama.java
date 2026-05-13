@@ -4,7 +4,7 @@ import java.io.File;
 
 public class BacaNama {
     public static void main(String[] args) {
-        var dir = new File("ListFile");
+        var dir = new File("Semester_2\\Advance_Programming\\Semester_2\\PracticalAdvanceProgramming\\Chapter_10");
 
         if (dir.exists() && dir.isDirectory()) {
             File[] files = dir.listFiles();

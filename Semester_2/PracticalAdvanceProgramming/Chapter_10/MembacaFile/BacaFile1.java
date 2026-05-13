@@ -9,7 +9,7 @@ public class BacaFile1 {
 
     public static void main(String[] args) {
 
-        var filename = "test.txt";
+        var filename = "Semester_2\\Advance_Programming\\Semester_2\\PracticalAdvanceProgramming\\Chapter_10\\test.txt";
         var file = new File(filename);
 
         if (file.exists() && file.canRead()) {
